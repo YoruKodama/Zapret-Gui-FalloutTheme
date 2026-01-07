@@ -65,13 +65,39 @@ if %errorlevel% neq 0 (
 )
 
 echo [OK] Python найден
-echo [*] Запускаю обычную версию...
+echo [*] Проверяю зависимости...
 echo.
 
-python zapret_matrix_gui.py
+REM Автоматическая установка зависимостей
+python -c "import customtkinter, PIL, psutil" >nul 2>&1
+if %errorlevel% neq 0 (
+    echo [*] Устанавливаю необходимые библиотеки...
+    echo [*] Это займет 1-2 минуты...
+    echo.
+    
+    python -m pip install --upgrade pip --quiet
+    python -m pip install -r requirements_gui.txt --quiet
+    
+    if %errorlevel% neq 0 (
+        echo [ERROR] Не удалось установить зависимости!
+        echo.
+        pause
+        exit /b 1
+    )
+    
+    echo [OK] Зависимости установлены!
+    echo.
+)
 
+echo [*] Запускаю Python версию...
 echo.
-echo [*] Для создания версии без Python запустите:
-echo     build_exe.bat
+
+start "Zapret Matrix GUI" python zapret_matrix_gui.py
+
+timeout /t 2 >nul
+
+echo [OK] GUI запущен!
+echo.
+echo [TIP] Для создания версии без Python запустите: build_exe.bat
 echo.
 pause
