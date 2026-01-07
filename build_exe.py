@@ -66,6 +66,8 @@ def build_exe():
         '--add-data=zapret_matrix_config.json;.',
         '--add-data=lists;lists',
         '--add-data=bin;bin',
+        '--add-data=service.bat;.',
+        '--add-data=*.bat;.',  # Все bat файлы
         '--hidden-import=customtkinter',
         '--hidden-import=PIL',
         '--hidden-import=PIL._tkinter_finder',

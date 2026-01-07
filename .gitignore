@@ -17,12 +17,9 @@ pip-delete-this-directory.txt
 build/
 dist/
 *.spec
-*.manifest
-*.exe
-!ZapretMatrixGUI.exe
 
 # Distribution
-ZapretMatrixGUI_Portable/
+ZapretMatrixGUI_Portable*/
 *.zip
 
 # IDE
