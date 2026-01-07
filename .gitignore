@@ -1,35 +1,23 @@
-/utils/test results
-
-# Python
-__pycache__/
-*.py[cod]
-*$py.class
-*.so
-.Python
-env/
-venv/
-.venv/
-ENV/
-pip-log.txt
-pip-delete-this-directory.txt
-
-# PyInstaller
-build/
+# Игнорируем папку сборки
 dist/
-*.spec
 
-# Distribution
-ZapretMatrixGUI_Portable*/
+# Если есть другие артефакты сборки — можно добавить
+*.exe
+*.jar
 *.zip
+*.log
 
-# IDE
-.vscode/
+# IDE / системные файлы
 .idea/
-*.swp
-*.swo
-*~
-
-# OS
+.vscode/
 .DS_Store
 Thumbs.db
 desktop.ini
+
+# Локальные конфиги
+.env
+local.properties
+
+# Сборки Gradle (если используется)
+.gradle/
+build/
